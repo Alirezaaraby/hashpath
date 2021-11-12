@@ -13,8 +13,9 @@ def snippet_detail(request, day, month, year):
     Retrieve, update or delete a code snippet.
     """
     try:
-
-        snippet = model.Data.objects.all()
+        # snippet = Data.objects.all()
+        date = jdatetime.date.fromgregorian(day=day, month=month, year=year)
+        snippet = Data.objects.filter(date=date)
 
     except model.Data.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)

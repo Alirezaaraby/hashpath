@@ -4,5 +4,5 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    url(r'^products/$', views.my_view, name='urlname')
+    url(r'^way/$', views.my_view, name='router')
 ]
