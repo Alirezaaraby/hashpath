@@ -1,3 +1,9 @@
-from django.shortcuts import render
+from django.http import HttpResponse
+from .models import Data
 
-# Create your views here.
+
+def my_view(request):
+    switch = request.GET['switch']
+    light = request.GET['light']
+    Data.objects.create(switch = switch, light= light)
+    return HttpResponse("switch = " + switch +" "+ "light = " + light)
